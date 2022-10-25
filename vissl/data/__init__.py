@@ -16,6 +16,8 @@ from vissl.data.data_helper import (
     DeterministicDistributedSampler,
     StatefulDistributedSampler,
 )
+from .rsna_2022 import VisslFractureDataset
+
 from vissl.data.dataloader_sync_gpu_wrapper import DataloaderSyncGPUWrapper
 from vissl.data.dataset_catalog import (
     VisslDatasetCatalog,
@@ -43,6 +45,7 @@ DATASET_SOURCE_MAP = {
     "disk_folder": DiskImageDataset,
     "torchvision_dataset": TorchvisionDataset,
     "synthetic": SyntheticImageDataset,
+    "fracture": VisslFractureDataset,
 }
 
 

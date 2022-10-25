@@ -49,3 +49,6 @@ $BINARY ${CFG[*]} \
     config.DISTRIBUTED.BACKEND=$DIST_BACKEND \
     config.CHECKPOINT.DIR="$CHECKPOINT_DIR" \
     config.MODEL.SYNC_BN_CONFIG.SYNC_BN_TYPE=pytorch \
+
+
+150 -> 15 -> 

@@ -15,7 +15,7 @@ config:
     TRAIN:
       DATA_SOURCES: [fracture]
       DATASET_NAMES: [rsna_fracture]
-      BATCHSIZE_PER_REPLICA: 64
+      BATCHSIZE_PER_REPLICA: 96
       LABEL_TYPE: sample_index    # just an implementation detail. Label isn't used
       TRANSFORMS:
         - name: ImgPilToMultiCrop
@@ -87,7 +87,7 @@ config:
       nesterov: False
       # num_epochs: 100
       # num_epochs: 200
-      num_epochs: 400
+      num_epochs: 50
       # num_epochs: 800
       # num_epochs: 1
       # num_epochs: 2
@@ -127,7 +127,7 @@ config:
   MACHINE:
     DEVICE: gpu
   CHECKPOINT:
-    DIR: "."
+    DIR: "/kaggle/working/checkpoint"
     AUTO_RESUME: True
-    CHECKPOINT_FREQUENCY: 5           # every phase since data is big
+    CHECKPOINT_FREQUENCY: 1           # every phase since data is big
     CHECKPOINT_ITER_FREQUENCY: -1    # equals 1epoch of imagenet-1k

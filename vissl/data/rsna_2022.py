@@ -51,6 +51,9 @@ class VisslFractureDataset(Dataset):
             "disk_folder",
             "fracture"
         ], "data_source must be either disk_filelist or disk_folder or my_data_source"
+
+        self.sampling_ratio = 10
+
         self.cfg = cfg
         self.split = split
         self.dataset_name = dataset_name
@@ -62,7 +65,7 @@ class VisslFractureDataset(Dataset):
         self.get_image = True
         if split == "TRAIN":
             self.df = load_df()
-            self._num_samples = len(self.df) # set the length of the dataset
+            self._num_samples = len(self.df) // self.sampling_ratio # set the length of the dataset
         else:
             print(split)
             input()
@@ -93,6 +96,8 @@ class VisslFractureDataset(Dataset):
         implement how to load the data corresponding to idx element in the dataset
         from your data source
         """
+        idx = idx * self.sampling_ratio
+
         uid = self.df.iloc[idx].StudyInstanceUID
         slice_idx = self.df.iloc[idx].Slice
 

@@ -24,8 +24,8 @@ def load_dicom(path):
     return cv2.cvtColor(data, cv2.COLOR_GRAY2RGB), img
 
 def load_df():
-    TRAIN_DF = "../input/rsna-2022-cervical-spine-fracture-detection/train.csv"
-    VERTEBRAE_PRED = "../input/rsna2022individualsegmap/train_segmented_hardlabel.csv"
+    TRAIN_DF = "/kaggle/input/rsna-2022-cervical-spine-fracture-detection/train.csv"
+    VERTEBRAE_PRED = "/kaggle/input/rsna2022individualsegmap/train_segmented_hardlabel.csv"
     df = pd.read_csv(TRAIN_DF)
     df_train_slices = pd.read_csv(VERTEBRAE_PRED)
 
@@ -58,7 +58,7 @@ class VisslFractureDataset(Dataset):
         self._path = path
         # implement anything that data source init should do
 
-        self.img_path = "../input/rsna-2022-cervical-spine-fracture-detection/train_images"
+        self.img_path = "/kaggle/input/rsna-2022-cervical-spine-fracture-detection/train_images"
         self.get_image = True
         if split == "TRAIN":
             self.df = load_df()

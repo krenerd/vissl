@@ -48,6 +48,3 @@ $BINARY ${CFG[*]} \
     config.DISTRIBUTED.NUM_PROC_PER_NODE=1 \
     config.DISTRIBUTED.BACKEND=$DIST_BACKEND \
     config.MODEL.SYNC_BN_CONFIG.SYNC_BN_TYPE=pytorch \
-
-
-150 -> 15 -> 
